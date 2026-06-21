@@ -21,10 +21,9 @@ export default function ProductCard({ product }: { product: Product }) {
       subtitle: `${product.type} · ${product.genres.join(", ")}`,
       coverImage: product.coverImage,
       coverColor: product.coverColor,
-      // NOTE: this is a placeholder demo loop, not a real preview of this
-      // product yet. Swap in a real preview clip via product.previewUrl
-      // once you have one, and update this to use it instead.
-      audioUrl: "/audio/demo-preview.mp3",
+      // Falls back to a generic demo loop for products without a real
+      // preview clip yet (previewUrl is null in data/products.json).
+      audioUrl: product.previewUrl ?? "/audio/demo-preview.mp3",
     });
   }
 

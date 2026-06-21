@@ -14,7 +14,7 @@
     "fileCount": 600,
     "format": "WAV, 2.8GB+",
     "genres": ["trap", "cinematic", "neural"],
-    "previewUrl": null,
+    "previewUrl": "/audio/dunescape-preview.mp3",
     "payhipKey": "9YaVZ",
     "featured": true
   },
@@ -33,7 +33,7 @@
     "fileCount": 400,
     "format": "WAV",
     "genres": ["tron music", "neural music", "trap"],
-    "previewUrl": null,
+    "previewUrl": "/audio/hylozoism-preview.mp3",
     "payhipKey": "EiMRg",
     "featured": true
   }

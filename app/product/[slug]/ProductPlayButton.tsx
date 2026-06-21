@@ -14,8 +14,9 @@ export default function ProductPlayButton({ product }: { product: Product }) {
       subtitle: `${product.type} · ${product.genres.join(", ")}`,
       coverImage: product.coverImage,
       coverColor: product.coverColor,
-      // NOTE: placeholder demo loop — swap for a real preview clip later.
-      audioUrl: "/audio/demo-preview.mp3",
+      // Falls back to a generic demo loop for products without a real
+      // preview clip yet (previewUrl is null in data/products.json).
+      audioUrl: product.previewUrl ?? "/audio/demo-preview.mp3",
     });
   }
 
