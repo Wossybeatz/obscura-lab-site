@@ -3,6 +3,7 @@ import ProductCard from "@/components/ProductCard";
 import PayhipButton from "@/components/PayhipButton";
 import SessionClock from "@/components/SessionClock";
 import HeroHeading from "@/components/HeroHeading";
+import ScrollFade from "@/components/ScrollFade";
 import { getFeaturedProducts, getAllBundles, formatPrice } from "@/lib/products";
 
 export default function Home() {
@@ -64,6 +65,7 @@ export default function Home() {
       </div>
 
       {/* CATEGORIES */}
+      <ScrollFade>
       <section className="py-20 md:py-24">
         <div className="max-w-[1180px] mx-auto px-7">
           <div className="mb-12">
@@ -108,8 +110,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollFade>
 
       {/* BESTSELLERS */}
+      <ScrollFade>
       <section className="pb-20 md:pb-24">
         <div className="max-w-[1180px] mx-auto px-7">
           <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
@@ -135,9 +139,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollFade>
 
       {/* BUNDLE BANNER */}
       {mainBundle && (
+        <ScrollFade>
         <section className="pb-20 md:pb-24">
           <div className="max-w-[1180px] mx-auto px-7">
             <div className="border border-[var(--accent-dim)] rounded-2xl bg-[var(--bg-card)] p-8 md:p-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-10 relative overflow-hidden">
@@ -179,9 +185,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </ScrollFade>
       )}
 
       {/* ABOUT / TERMINAL */}
+      <ScrollFade>
       <section className="pb-20 md:pb-24">
         <div className="max-w-[1180px] mx-auto px-7">
           <div className="mb-12">
@@ -228,6 +236,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollFade>
 
     </>
   );

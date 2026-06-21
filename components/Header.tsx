@@ -10,13 +10,13 @@ export default function Header() {
 
   return (
     <div className="sticky top-0 z-50 bg-[#06080a]/85 backdrop-blur-md border-b border-[#1c2326]">
-      <div className="max-w-[1180px] mx-auto px-7 py-4 flex items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2.5 font-mono-brand font-extrabold text-lg tracking-wide shrink-0">
+      <div className="max-w-[1180px] mx-auto px-7 py-4 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <Link href="/" className="flex items-center gap-2.5 font-mono-brand font-extrabold text-lg tracking-wide shrink-0 justify-self-start">
           <span className="w-2 h-2 rounded-full bg-[var(--accent)] blink shadow-[0_0_8px_var(--accent-glow)]" />
           AETRIS <span className="text-[var(--accent)] font-bold">/ LAB</span>
         </Link>
 
-        <nav className="hidden md:flex gap-8 items-center">
+        <nav className="hidden md:flex gap-8 items-center justify-self-center">
           <Link href="/kits" className="text-xs font-mono-brand tracking-widest uppercase text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors">
             Kits
           </Link>
@@ -28,7 +28,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-3 md:gap-4 flex-1 md:flex-none justify-end">
+        <div className="flex items-center gap-3 md:gap-4 justify-self-end">
           <div className="hidden sm:block">
             <SearchBox />
           </div>
