@@ -26,14 +26,19 @@ export default function ScrollFade({
     function update() {
       if (!el) return;
       const rect = el.getBoundingClientRect();
-      const passed = -rect.top;
-      // Fully receded once scrolled about 70% of the section's own height
-      // past the top — keeps the effect proportional to section size.
-      const progress = Math.min(Math.max(passed / (rect.height * 0.7 || 1), 0), 1);
+      // Start the effect a bit early — while the section's top edge is
+      // still ~18% of the viewport height below the actual top — instead
+      // of waiting until it's fully scrolled past.
+      const startAt = window.innerHeight * 0.18;
+      const passed = startAt - rect.top;
+      // Fully receded only after scrolling a full section height past that
+      // point, and the effect itself is intentionally subtle (low max
+      // blur/opacity/scale change) so it reads as a soft drift, not a fade.
+      const progress = Math.min(Math.max(passed / (rect.height || 1), 0), 1);
 
-      el.style.filter = progress > 0 ? `blur(${progress * 7}px)` : "";
-      el.style.opacity = progress > 0 ? `${1 - progress * 0.55}` : "1";
-      el.style.transform = progress > 0 ? `scale(${1 - progress * 0.035})` : "";
+      el.style.filter = progress > 0 ? `blur(${progress * 3}px)` : "";
+      el.style.opacity = progress > 0 ? `${1 - progress * 0.3}` : "1";
+      el.style.transform = progress > 0 ? `scale(${1 - progress * 0.02})` : "";
 
       frame = 0;
     }
