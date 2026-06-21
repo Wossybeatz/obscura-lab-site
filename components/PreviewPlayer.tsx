@@ -240,28 +240,27 @@ export default function PreviewPlayer() {
           </span>
         </div>
 
-        {/* Varispeed control — one knob moves pitch and tempo together (FL Studio MUL / Logic Pro Varispeed) */}
+        {/* Pitch control — uses varispeed under the hood (pitch and tempo move
+            together), but only the pitch number is shown, since that's what
+            producers expect a "P" control to mean. */}
         <div className="relative shrink-0">
           <button
             onClick={() => setPitchPopupOpen((v) => !v)}
-            aria-label="Varispeed control"
-            title="Varispeed — changes pitch and tempo together"
+            aria-label="Pitch control"
+            title="Pitch"
             className={`w-9 h-9 rounded-full border flex items-center justify-center font-mono-brand text-xs font-bold transition-all ${
               semitones !== 0
                 ? "border-[var(--accent)] text-[var(--accent)] shadow-[0_0_10px_var(--accent-glow)]"
                 : "border-[var(--line)] text-[var(--text-dim)] hover:border-[var(--accent-dim)] hover:text-[var(--accent)]"
             }`}
           >
-            M
+            P
           </button>
 
           {pitchPopupOpen && (
             <div className="absolute bottom-full right-0 mb-3 w-[210px] bg-[#0d0f15] border border-[var(--line)] rounded-xl p-4 shadow-2xl">
-              <p className="font-mono-brand text-2xl text-center font-bold mb-1">
+              <p className="font-mono-brand text-2xl text-center font-bold mb-2">
                 {semitones > 0 ? `+${semitones}` : semitones} st
-              </p>
-              <p className="font-mono-brand text-[11px] text-center text-[var(--text-faint)] mb-2">
-                {Math.round(rate * 100)}% tempo
               </p>
               <input
                 type="range"

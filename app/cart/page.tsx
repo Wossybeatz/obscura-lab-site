@@ -53,25 +53,32 @@ export default function CartPage() {
             <div className="border border-[var(--line)] rounded-lg divide-y divide-[var(--line)]">
               {items.map((item) => (
                 <div key={item.id} className="flex items-center gap-4 p-4">
-                  <div
-                    className="w-14 h-14 rounded-md border border-[var(--line)] shrink-0 overflow-hidden flex items-center justify-center"
-                    style={
-                      item.coverImage
-                        ? {}
-                        : { background: `linear-gradient(135deg, ${item.coverColor}, #161f1a)` }
-                    }
+                  <Link
+                    href={item.kind === "bundle" ? `/bundles/${item.slug}` : `/product/${item.slug}`}
+                    className="flex items-center gap-4 flex-1 min-w-0 group"
                   >
-                    {item.coverImage && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={item.coverImage} alt={item.name} className="w-full h-full object-cover" />
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-mono-brand text-sm font-bold truncate">{item.name}</p>
-                    <p className="font-mono-brand text-xs text-[var(--text-faint)] uppercase tracking-wide">
-                      {item.kind}
-                    </p>
-                  </div>
+                    <div
+                      className="w-14 h-14 rounded-md border border-[var(--line)] shrink-0 overflow-hidden flex items-center justify-center"
+                      style={
+                        item.coverImage
+                          ? {}
+                          : { background: `linear-gradient(135deg, ${item.coverColor}, #161f1a)` }
+                      }
+                    >
+                      {item.coverImage && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={item.coverImage} alt={item.name} className="w-full h-full object-cover" />
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-mono-brand text-sm font-bold truncate group-hover:text-[var(--accent)] transition-colors">
+                        {item.name}
+                      </p>
+                      <p className="font-mono-brand text-xs text-[var(--text-faint)] uppercase tracking-wide">
+                        {item.kind}
+                      </p>
+                    </div>
+                  </Link>
                   <span className="font-mono-brand font-bold text-[var(--accent)] text-sm shrink-0">
                     {formatPrice(item.price)}
                   </span>
