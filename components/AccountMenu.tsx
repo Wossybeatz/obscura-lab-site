@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 
 export default function AccountMenu() {
@@ -8,6 +8,22 @@ export default function AccountMenu() {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Close on a real click outside the menu, not on mouseleave — mouseleave
+  // fired (and closed the form mid-typing) whenever the cursor crossed into
+  // the browser's native autofill/autocomplete dropdown, since that's
+  // rendered outside this component's DOM bounds.
+  useEffect(() => {
+    if (!open) return;
+    function handleClickOutside(e: MouseEvent) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -19,7 +35,7 @@ export default function AccountMenu() {
   if (loading) return null;
 
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={user ? "Account menu" : "Sign in"}
@@ -33,10 +49,7 @@ export default function AccountMenu() {
       </button>
 
       {open && (
-        <div
-          className="absolute top-full right-0 mt-2 w-[260px] bg-[#0d0f15] border border-[var(--line)] rounded-xl p-4 shadow-2xl z-50"
-          onMouseLeave={() => setOpen(false)}
-        >
+        <div className="absolute top-full right-0 mt-2 w-[260px] bg-[#0d0f15] border border-[var(--line)] rounded-xl p-4 shadow-2xl z-50">
           {user ? (
             <>
               <p className="font-mono-brand text-xs text-[var(--text-faint)] uppercase tracking-wide mb-1">
