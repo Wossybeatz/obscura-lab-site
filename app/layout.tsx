@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PreviewPlayer from "@/components/PreviewPlayer";
 import { PlayerProvider } from "@/lib/player-context";
 import { CartProvider } from "@/lib/cart-context";
+import { AuthProvider } from "@/lib/auth-context";
 import BootLoader from "@/components/BootLoader";
 import PageTransition from "@/components/PageTransition";
 import PromoPopup from "@/components/PromoPopup";
@@ -31,20 +32,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <CartProvider>
-          <BootLoader />
-          <PromoPopup />
-          <PlayerProvider>
-            <div className="bg-grid" />
-            <Header />
-            {/* pb-24 leaves room at the bottom so the sticky player never covers content */}
-            <main className="relative z-10 pb-24">
-              <PageTransition>{children}</PageTransition>
-            </main>
-            <Footer />
-            <PreviewPlayer />
-          </PlayerProvider>
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <BootLoader />
+            <PromoPopup />
+            <PlayerProvider>
+              <div className="bg-grid" />
+              <Header />
+              {/* pb-24 leaves room at the bottom so the sticky player never covers content */}
+              <main className="relative z-10 pb-24">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <Footer />
+              <PreviewPlayer />
+            </PlayerProvider>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -4,9 +4,12 @@ import {
   createContext,
   useContext,
   useEffect,
+  useRef,
   useState,
   ReactNode,
 } from "react";
+import { useAuth } from "./auth-context";
+import { supabaseBrowser } from "./supabase-browser";
 
 export type CartItem = {
   id: string;
@@ -32,12 +35,27 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const STORAGE_KEY = "aetrislab_cart";
 
+function mergeItems(a: CartItem[], b: CartItem[]): CartItem[] {
+  const merged = [...a];
+  for (const item of b) {
+    if (!merged.some((i) => i.id === item.id)) merged.push(item);
+  }
+  return merged;
+}
+
 export function CartProvider({ children }: { children: ReactNode }) {
+  const { user } = useAuth();
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
+  // Tracks whether the current `items` change came from the
+  // remote-merge effect itself, so we don't immediately echo it back to
+  // Supabase as a redundant write.
+  const skipNextSyncRef = useRef(false);
+  const syncedUserIdRef = useRef<string | null>(null);
 
-  // Load from localStorage once on mount (client-only — cart never touches
-  // a server, since checkout is fully delegated to Payhip per item).
+  // Load from localStorage once on mount — this is the cart for signed-out
+  // visitors, and the starting point merged with any signed-in user's
+  // remote cart once auth resolves.
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
@@ -48,10 +66,42 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setHydrated(true);
   }, []);
 
+  // When a user signs in, pull their saved cart from Supabase and merge it
+  // with whatever's currently in this browser (union by id), so switching
+  // devices never silently drops items either side already had.
+  useEffect(() => {
+    if (!hydrated || !user || syncedUserIdRef.current === user.id) return;
+    syncedUserIdRef.current = user.id;
+
+    supabaseBrowser
+      .from("carts")
+      .select("items")
+      .eq("user_id", user.id)
+      .maybeSingle()
+      .then(({ data }) => {
+        const remoteItems = (data?.items as CartItem[] | undefined) ?? [];
+        skipNextSyncRef.current = true;
+        setItems((local) => mergeItems(local, remoteItems));
+      });
+  }, [hydrated, user]);
+
   useEffect(() => {
     if (!hydrated) return;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  }, [items, hydrated]);
+
+    if (skipNextSyncRef.current) {
+      skipNextSyncRef.current = false;
+      // Still push the merged result up, so both sides end up consistent.
+    }
+    if (user) {
+      supabaseBrowser
+        .from("carts")
+        .upsert({ user_id: user.id, items, updated_at: new Date().toISOString() })
+        .then(({ error }) => {
+          if (error) console.error("cart sync failed:", error.message);
+        });
+    }
+  }, [items, hydrated, user]);
 
   function addItem(item: CartItem) {
     setItems((prev) => (prev.some((i) => i.id === item.id) ? prev : [...prev, item]));

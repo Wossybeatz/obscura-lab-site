@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import SearchBox from "./SearchBox";
+import AccountMenu from "./AccountMenu";
 import { useCart } from "@/lib/cart-context";
 
 export default function Header() {
@@ -48,6 +49,7 @@ export default function Header() {
               </span>
             )}
           </Link>
+          <AccountMenu />
         </div>
       </div>
       <div className="sm:hidden px-7 pb-3">
