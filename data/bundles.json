@@ -1,0 +1,16 @@
+[
+  {
+    "id": "dunescape-hylozoism",
+    "slug": "dunescape-hylozoism",
+    "name": "DUNESCAPE + HYLOZOISM",
+    "type": "bundle",
+    "description": "Two full kits together: DUNESCAPE's cinematic, dune-inspired sound design and HYLOZOISM's tron/neural/trap palette. 1000+ sounds combined.",
+    "includesProductIds": ["dunescape", "hylozoism"],
+    "regularPrice": 79.99,
+    "bundlePrice": 30,
+    "badge": "BUNDLE",
+    "coverColor": "#13141a",
+    "coverImage": null,
+    "payhipKey": "DEMO_PLACEHOLDER"
+  }
+]

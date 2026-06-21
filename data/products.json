@@ -1,0 +1,40 @@
+[
+  {
+    "id": "dunescape",
+    "slug": "dunescape",
+    "name": "DUNESCAPE",
+    "type": "drum kit",
+    "category": "kits",
+    "description": "Sound kit inspired by Dune and the Dune universe to spice up your music production with that particular style. The kit contains new approaches and techniques for sound design. 2.8GB+ file size, 600+ sounds.\n\nInside Dunescape:\n— Drumkit (150+ brand new and unique sounds)\n— One shots (300+ sounds: accents + phrases, arps + pulses, distorted strums, drones, textures, pads, noises, tonals, vocals and more)\n— Compositions (5 melodies: Dune and neural sonics)\n— Arturia Augmented Strings & Augmented Voice preset bank (40+ cinematic patches)\n— Percussion collection (150+ sounds: perc one shots, perc fills, perc foley, perc textures, perc loops)",
+    "price": 59.99,
+    "salePrice": null,
+    "badge": "NEW",
+    "coverColor": "#1a0f02",
+    "coverImage": "/products/dunescape.jpg",
+    "fileCount": 600,
+    "format": "WAV, 2.8GB+",
+    "genres": ["trap", "cinematic", "neural"],
+    "previewUrl": null,
+    "payhipKey": "9YaVZ",
+    "featured": true
+  },
+  {
+    "id": "hylozoism",
+    "slug": "hylozoism",
+    "name": "HYLOZOISM",
+    "type": "multi kit",
+    "category": "kits",
+    "description": "HYLOZOISM has over 400+ sounds made from scratch, giving you loads of options for your sonic journey. Mixing tron music, neural music and trap vibes — whether you're a pro or just starting, this kit lets you blend genres and get creative.\n\nIncludes:\n\nDrum kit — 808 (56), Clap (24), HH (20), Kick (11), OH (34), Rim (12), Snare (40), Vox (12)\n\nLoops — 24\n\nOne shots — Accent (5), Arp (4), Bass (12), Bass Pulse (3), Brass (2), Choir (3), Hits (5), Keys (4), Lead (15), Live recorded cello (4), Pad (6), Phrases (3), Strings (4), Synth (5), Texture (17)\n\nPerc library — Perc (25), Perc fill (8), Perc loop (11)\n\nBonus — 909 (6), FX (3), Glitch (25)\n\n400+ sounds all together.",
+    "price": 20,
+    "salePrice": null,
+    "badge": null,
+    "coverColor": "#1a0202",
+    "coverImage": "/products/hylozoism.jpg",
+    "fileCount": 400,
+    "format": "WAV",
+    "genres": ["tron music", "neural music", "trap"],
+    "previewUrl": null,
+    "payhipKey": "EiMRg",
+    "featured": true
+  }
+]
