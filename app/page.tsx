@@ -37,7 +37,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-14 font-mono-brand text-[13px] text-[var(--text-faint)] flex items-center justify-center gap-1.5">
-            <span>root@obscuralab:~$ play_demo --pack=latest</span>
+            <span>root@aetrislab:~$ play_demo --pack=latest</span>
             <span className="w-2 h-3.5 bg-[var(--accent)] inline-block blink" />
           </div>
         </div>
@@ -198,7 +198,7 @@ export default function Home() {
               <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
               <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
               <span className="ml-2.5 font-mono-brand text-xs text-[var(--text-faint)]">
-                obscuralab — about.sh
+                aetrislab — about.sh
               </span>
             </div>
             <div className="p-6 font-mono-brand text-[13px] leading-loose text-[var(--text-dim)]">
@@ -206,7 +206,7 @@ export default function Home() {
                 <span className="text-[var(--accent)]">$</span> whoami
               </div>
               <div className="text-[var(--text)]">
-                obscura / lab — sound design studio for producers
+                aetris / lab — sound design studio for producers
               </div>
               <div className="mt-2">
                 <span className="text-[var(--accent)]">$</span> cat mission.txt

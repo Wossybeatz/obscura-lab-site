@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const PROMO_CODE = "LAB20";
-const SESSION_KEY = "obscuralab_promo_shown";
+const SESSION_KEY = "aetrislab_promo_shown";
 const SHOW_AFTER_MS = 18000;
 const COUNTDOWN_SECONDS = 10 * 60; // urgency timer, resets each time it's shown
 

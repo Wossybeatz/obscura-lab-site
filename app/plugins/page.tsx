@@ -12,7 +12,7 @@ export default function PluginsPage() {
           We&apos;re working on a lineup of audio plugins for producers.
         </p>
         <p className="text-[var(--text-faint)] font-mono-brand text-xs">
-          root@obscuralab:~$ status — in development
+          root@aetrislab:~$ status — in development
         </p>
       </div>
     </section>

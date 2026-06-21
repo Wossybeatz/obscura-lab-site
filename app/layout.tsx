@@ -18,7 +18,7 @@ import PromoPopup from "@/components/PromoPopup";
 // for better performance (it self-hosts the font files at build time).
 
 export const metadata: Metadata = {
-  title: "OBSCURA / LAB — sounds for producers",
+  title: "AETRIS / LAB — sounds for producers",
   description:
     "Drum kits, sample packs and bundles built for trap and r&b producers who don't settle for filler.",
 };

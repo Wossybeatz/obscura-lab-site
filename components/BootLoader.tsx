@@ -10,7 +10,7 @@ const STEPS = [
   "calibrating interface........ [OK]",
 ];
 
-const SESSION_KEY = "obscuralab_booted";
+const SESSION_KEY = "aetrislab_booted";
 
 export default function BootLoader() {
   // Only show once per browser tab session, not on every client-side
@@ -58,7 +58,7 @@ export default function BootLoader() {
     >
       <div className="font-mono-brand text-[13px] text-[var(--text-dim)] w-[320px]">
         <p className="text-2xl font-extrabold uppercase tracking-[-1px] mb-1 text-[var(--text)]">
-          OBSCURA <span className="text-[var(--accent)]">/ LAB</span>
+          AETRIS <span className="text-[var(--accent)]">/ LAB</span>
         </p>
         <div className="mt-6 space-y-1">
           {STEPS.slice(0, stepIndex).map((line, i) => (

@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2.5 font-mono-brand font-extrabold text-lg mb-3.5">
               <span className="w-2 h-2 rounded-full bg-[var(--accent)]" />
-              OBSCURA <span className="text-[var(--accent)]">/ LAB</span>
+              AETRIS <span className="text-[var(--accent)]">/ LAB</span>
             </div>
             <p className="text-[var(--text-dim)] text-sm max-w-[280px] leading-relaxed">
               Sound kits &amp; sample packs for producers who want their tracks to hit different.
@@ -67,7 +67,7 @@ export default function Footer() {
 
         <div className="border-t border-[var(--line)] pt-6 flex justify-between items-center flex-wrap gap-4">
           <p className="font-mono-brand text-xs text-[var(--text-faint)]">
-            © 2026 OBSCURA / LAB. All rights reserved.
+            © 2026 AETRIS / LAB. All rights reserved.
           </p>
         </div>
       </div>

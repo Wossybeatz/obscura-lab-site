@@ -12,7 +12,7 @@ export default function Header() {
       <div className="max-w-[1180px] mx-auto px-7 py-4 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2.5 font-mono-brand font-extrabold text-lg tracking-wide shrink-0">
           <span className="w-2 h-2 rounded-full bg-[var(--accent)] blink shadow-[0_0_8px_var(--accent-glow)]" />
-          OBSCURA <span className="text-[var(--accent)] font-bold">/ LAB</span>
+          AETRIS <span className="text-[var(--accent)] font-bold">/ LAB</span>
         </Link>
 
         <nav className="hidden md:flex gap-8 items-center">

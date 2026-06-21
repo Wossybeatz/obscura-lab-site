@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const TEXT = "OBSCURA / LAB";
+const TEXT = "AETRIS / LAB";
 const GLITCH_CHARS = "!<>-_\\/[]{}=+*^?#01░▒▓";
 
 function randomChar(): string {
