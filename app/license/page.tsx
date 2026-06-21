@@ -83,7 +83,7 @@ const SECTIONS: Section[] = [
         items: [
           { mark: ">", text: "All samples and plugins remain our intellectual property" },
           { mark: ">", text: "You purchase the right to use, not the files themselves" },
-          { mark: ">", text: 'Credits are mandatory: when using samples in tracks, you must credit "AETRIS / LAB" in descriptions/credits' },
+          { mark: ">", text: 'Credits are mandatory: when using samples in tracks, you must credit "@wossybeatz" in descriptions/credits' },
         ],
       },
     ],
@@ -106,7 +106,7 @@ const SECTIONS: Section[] = [
             Accepted format
           </p>
           <p className="font-mono-brand text-[13px]">
-            <span className="text-[var(--accent)]">$</span> prod. by AETRIS / LAB
+            <span className="text-[var(--accent)]">$</span> prod. by @wossybeatz
           </p>
         </div>
       </div>
